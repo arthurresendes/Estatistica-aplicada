@@ -2,5 +2,6 @@
 
 ---
 
-Stacks:
-![Jupyter](https://skillicons.dev)
+## Aprendizado:
+  - Leitura e alterações em dataframes com pandas
+
