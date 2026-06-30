@@ -1,0 +1,39 @@
+Libs utilizadas:
+    pandas -> Leitura e mudanças no dataframe
+    numpy -> Utiliziado para arrays, matrizes, algebra, etc
+
+Ler dados:
+    pd.read_tipo('nome_arquivo', outras configurações se necessario)
+
+Exportar dados:
+    tabela.read_tipo('nome_arquivo_queVoceQuiser', outras configurações se necessario)    
+
+Mostrar dados:
+    tabela.head(num) -> Ver o num dados 
+    tabela.shape() -> (linhas,colunas)
+    tabela.dtypes -> Ver todos tipos de dados que a tabela engloba
+    tabela.columns.tolist() -> Ver todas colunas da tabela
+
+Deletar colunas:
+    tabela.drop(columns=['Nome_Coluna'])
+
+Renomear colunas:
+    tabela.rename(columns={'NOME_ANTIGO': 'Nome_Novo'})
+
+Trocar dados:
+    tabela['COLUNA'] = tabela['COLUNA'].replace({0: 'X', 1: 'Y'}) -> pega a coluna e troca 0 por X e 1 por Y 
+
+Contagem:
+    tabela['COLUNA'].value_counts()
+    tabela[ COLUNA'].value_counts().sort_index() -> Contar ordenado
+
+Querys:
+    variavel = tabela.query('IDADE > 17')['IDADE'].value_counts() -> Exemplo de contagem de maiores de idades e armazenado em uma variavel
+    variavel = tabela.loc[´tabela.IDADE > 17] -> Outro metodo
+
+Verificar se é nulo:
+    tabela['COLUNA'].isnull().sum() -> Soma valores nulos
+
+Localização:
+    tabela.loc['linha', 'nome']
+    tabela.loc[:, 'TIPO'] *=10 -> Exemplo de conta onde pega todos(:) dados daquela coluna TIPO e multiplica por 10
