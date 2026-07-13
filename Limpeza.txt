@@ -37,3 +37,6 @@ Verificar se é nulo:
 Localização:
     tabela.loc['linha', 'nome']
     tabela.loc[:, 'TIPO'] *=10 -> Exemplo de conta onde pega todos(:) dados daquela coluna TIPO e multiplica por 10
+
+Concatenar:
+    var = pd.concat([var1, var2,etc])
