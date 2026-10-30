@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Correlação e Regressão Linear</title>
+</head>
+<body>
+    <p><a href="index.html">&larr; Voltar ao início</a></p>
+
+    <h1>Correlação e Regressão Linear - Exercício</h1>
+    <p>Aqui vamos descobrir se duas variáveis andam juntas e usar essa relação para fazer previsões.</p>
+
+    <h2>Conceitos</h2>
+    <ul>
+        <li><strong>Variável x (independente):</strong> a que usamos para explicar ou prever. Neste exercício, o ano.</li>
+        <li><strong>Variável y (dependente):</strong> a que queremos prever. Neste exercício, a produção.</li>
+        <li><strong>Diagrama de dispersão:</strong> um gráfico em que cada ponto é um par (x, y). Ele mostra se existe relação entre as variáveis.</li>
+        <li><strong>Coeficiente de correlação (r):</strong> um número entre &minus;1 e 1 que mede a força da relação linear. Perto de 1: quando x aumenta, y aumenta (correlação positiva forte). Perto de &minus;1: quando x aumenta, y diminui (correlação negativa forte). Perto de 0: não há relação linear.</li>
+        <li><strong>Reta ajustada (regressão linear):</strong> a reta que melhor passa pelos pontos, escrita como y&#770;(x) = ax + b. Com ela, estimamos y para qualquer x.</li>
+        <li><strong>Interpolação e extrapolação:</strong> estimar um valor dentro do intervalo dos dados é interpolar. Estimar fora dele é extrapolar, e quanto mais longe, menos confiável.</li>
+    </ul>
+
+    <h2>Exercício</h2>
+    <p><strong>2.</strong> A tabela abaixo apresenta a produção de uma indústria:</p>
+
+    <table>
+        <tr>
+            <td><strong>Anos (x'<sub>i</sub>)</strong></td>
+            <td>1980</td><td>1981</td><td>1982</td><td>1983</td><td>1984</td><td>1985</td><td>1986</td><td>1987</td><td>1988</td>
+        </tr>
+        <tr>
+            <td><strong>Quantidades (t) (y<sub>i</sub>)</strong></td>
+            <td>34</td><td>36</td><td>36</td><td>38</td><td>41</td><td>42</td><td>43</td><td>44</td><td>46</td>
+        </tr>
+    </table>
+
+    <p>Determine:</p>
+    <ol class="alternativas">
+        <li>Construa o diagrama de dispersão.</li>
+        <li>O coeficiente de correlação.</li>
+        <li>A reta ajustada.</li>
+        <li>A produção estimada para 1979.</li>
+    </ol>
+
+    <h2>a - Diagrama de dispersão</h2>
+    <p>Os pontos sobem da esquerda para a direita, o que indica que a produção cresce com os anos.</p>
+    <img src="dispersao.png" alt="Diagrama de dispersão">
+
+    <h2>b - Coeficiente de correlação</h2>
+    <p><strong>1 passo - Montar a tabela</strong></p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>i</th>
+                <th>xi</th>
+                <th>yi</th>
+                <th>xiyi</th>
+                <th>xi²</th>
+                <th>yi²</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>1980</td><td>34</td><td>67320</td><td>3920400</td><td>1156</td></tr>
+            <tr><td>2</td><td>1981</td><td>36</td><td>71316</td><td>3924361</td><td>1296</td></tr>
+            <tr><td>3</td><td>1982</td><td>36</td><td>71352</td><td>3928324</td><td>1296</td></tr>
+            <tr><td>4</td><td>1983</td><td>38</td><td>75354</td><td>3932289</td><td>1444</td></tr>
+            <tr><td>5</td><td>1984</td><td>41</td><td>81344</td><td>3936256</td><td>1681</td></tr>
+            <tr><td>6</td><td>1985</td><td>42</td><td>83370</td><td>3940225</td><td>1764</td></tr>
+            <tr><td>7</td><td>1986</td><td>43</td><td>85398</td><td>3944196</td><td>1849</td></tr>
+            <tr><td>8</td><td>1987</td><td>44</td><td>87428</td><td>3948169</td><td>1936</td></tr>
+            <tr><td>9</td><td>1988</td><td>46</td><td>91448</td><td>3952144</td><td>2116</td></tr>
+        </tbody>
+        <tfoot>
+            <tr><td>Total</td><td>17856</td><td>360</td><td>714330</td><td>35426364</td><td>14538</td></tr>
+        </tfoot>
+    </table>
+
+    <p><strong>2 passo - Aplicar a fórmula</strong></p>
+    <p>Fórmula:</p>
+    <p>r = (n &middot; &Sigma;(x<sub>i</sub>y<sub>i</sub>) &minus; &Sigma;x<sub>i</sub> &middot; &Sigma;y<sub>i</sub>) / &radic;((n &middot; &Sigma;x<sub>i</sub><sup>2</sup> &minus; (&Sigma;x<sub>i</sub>)<sup>2</sup>) &middot; (n &middot; &Sigma;y<sub>i</sub><sup>2</sup> &minus; (&Sigma;y<sub>i</sub>)<sup>2</sup>))</p>
+    <p>Dados da tabela: n = 9, &Sigma;x<sub>i</sub> = 17856, &Sigma;y<sub>i</sub> = 360, &Sigma;x<sub>i</sub>y<sub>i</sub> = 714330, &Sigma;x<sub>i</sub><sup>2</sup> = 35426364 e &Sigma;y<sub>i</sub><sup>2</sup> = 14538</p>
+    <p>r = (9 &middot; 714330 &minus; 17856 &middot; 360) / &radic;((9 &middot; 35426364 &minus; (17856)<sup>2</sup>) &middot; (9 &middot; 14538 &minus; (360)<sup>2</sup>))</p>
+    <p>r = (6428970 &minus; 6428160) / &radic;((318837276 &minus; 318836736) &middot; (130842 &minus; 129600))</p>
+    <p>r = 810 / &radic;(540 &middot; 1242)</p>
+    <p>r = 810 / &radic;670680</p>
+    <p>r = 810 / 818,95</p>
+    <p><strong>r &asymp; 0,9891</strong></p>
+    <p>Como r está muito perto de 1, existe uma correlação positiva muito forte entre o ano e a produção.</p>
+
+    <h2>c - Reta ajustada</h2>
+    <p>Fórmula:</p>
+    <p>y&#770;(x) = ax + b</p>
+    <p>O <strong>a</strong> (coeficiente angular) diz quanto y muda quando x aumenta 1. O <strong>b</strong> (coeficiente linear) é o valor de y&#770; quando x = 0.</p>
+
+    <p>Cálculo do a:</p>
+    <p>a = (n &middot; &Sigma;(x<sub>i</sub>y<sub>i</sub>) &minus; &Sigma;x<sub>i</sub> &middot; &Sigma;y<sub>i</sub>) / (n &middot; &Sigma;x<sub>i</sub><sup>2</sup> &minus; (&Sigma;x<sub>i</sub>)<sup>2</sup>)</p>
+    <p>a = (9 &middot; 714330 &minus; 17856 &middot; 360) / (9 &middot; 35426364 &minus; (17856)<sup>2</sup>)</p>
+    <p>a = (6428970 &minus; 6428160) / (318837276 &minus; 318836736)</p>
+    <p>a = 810 / 540</p>
+    <p><strong>a = 1,5</strong></p>
+
+    <p>Cálculo do b:</p>
+    <p>b = &Sigma;y<sub>i</sub>/n &minus; a &middot; &Sigma;x<sub>i</sub>/n</p>
+    <p>b = 360/9 &minus; 1,5 &middot; 17856/9</p>
+    <p>b = 40 &minus; 1,5 &middot; 1984</p>
+    <p>b = 40 &minus; 2976</p>
+    <p><strong>b = &minus;2936</strong></p>
+
+    <p><strong>y&#770;(x) = 1,5x &minus; 2936</strong></p>
+    <p>O a = 1,5 significa que, a cada ano, a produção aumenta em média 1,5 tonelada. O b é um número grande e negativo porque x = 0 seria o ano 0, muito longe dos dados, e não tem significado prático.</p>
+
+    <h2>d - Produção estimada para 1979</h2>
+    <p>Como não simplificamos, usamos o ano cheio (x = 1979):</p>
+    <p>y&#770;(1979) = 1,5 &middot; 1979 &minus; 2936</p>
+    <p>y&#770;(1979) = 2968,5 &minus; 2936</p>
+    <p><strong>y&#770;(1979) = 32,5</strong></p>
+    <p>Como 1979 está fora do intervalo dos dados (1980 a 1988), essa estimativa é uma extrapolação.</p>
+
+    <h2>Dica: simplificando as contas</h2>
+    <p>Números grandes como 3920400 são fáceis de errar. Para evitar, podemos usar uma variável auxiliar, subtraindo um ano de referência de todos os anos: x = x' &minus; 1984.</p>
+    <p>Assim os valores de x ficam &minus;4, &minus;3, ..., 0, ..., 3, 4, e as contas ficam bem menores. O resultado de r e o valor de a não mudam; só o b muda:</p>
+    <p>y&#770;(x) = 1,5x + 40, com x = ano &minus; 1984</p>
+    <p>Para 1979, x = 1979 &minus; 1984 = &minus;5, então y&#770; = 1,5 &middot; (&minus;5) + 40 = 32,5, o mesmo valor de antes.</p>
+    <p>Lembre: se a reta foi montada com x simplificado, o ano também precisa ser simplificado antes de substituir.</p>
+
+    <p><a href="index.html">&larr; Voltar ao início</a></p>
+</body>
+</html>

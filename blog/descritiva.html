@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Estatística Descritiva - Exercício</title>
+</head>
+<body>
+    <p><a href="index.html">&larr; Voltar ao início</a></p>
+
+    <h1>Estatística Descritiva - Exercício</h1>
+    <p>Para entender melhor como funciona, vamos resolver um exercício completo, do começo ao fim.</p>
+
+    <p><strong>1.</strong> Uma empresa automobilística selecionou ao acaso uma amostra de 40 revendedores autorizados em todo o Brasil e anotou, em determinado mês, o número de unidades adquiridas por estes revendedores. Obteve os seguintes dados:</p>
+
+    <table>
+        <tr>
+            <td>10</td><td>15</td><td>25</td><td>21</td><td>6</td><td>23</td><td>15</td><td>21</td><td>26</td><td>32</td>
+        </tr>
+        <tr>
+            <td>9</td><td>14</td><td>19</td><td>20</td><td>32</td><td>18</td><td>16</td><td>26</td><td>24</td><td>20</td>
+        </tr>
+        <tr>
+            <td>7</td><td>18</td><td>17</td><td>28</td><td>35</td><td>22</td><td>19</td><td>39</td><td>18</td><td>21</td>
+        </tr>
+        <tr>
+            <td>15</td><td>18</td><td>22</td><td>20</td><td>25</td><td>28</td><td>30</td><td>16</td><td>12</td><td>20</td>
+        </tr>
+    </table>
+
+    <ol class="alternativas">
+        <li>Construir a tabela de distribuição de frequências (Sturges).</li>
+        <li>Construir o histograma e o polígono de frequências.</li>
+        <li>Determine a média aritmética.</li>
+        <li>A variância e o desvio-padrão.</li>
+        <li>O coeficiente de variação.</li>
+    </ol>
+
+    <h2>a - Tabela de distribuição de frequências</h2>
+    <p>Neste exercício, n = 40 é o total de dados e k é o número de classes.</p>
+
+    <p><strong>1 passo - Achar o número de classes (k)</strong></p>
+    <p>Usamos a regra de Sturges:</p>
+    <p>k = 1 + 3,3 &middot; log(n)</p>
+    <p>k = 1 + 3,3 &middot; log(40)</p>
+    <p>k = 6,2868</p>
+    <p>Arredondamos para cima, então k = 7.</p>
+
+    <p><strong>2 passo - Achar a amplitude de classe (Aa)</strong></p>
+    <p>Aa = (Maior valor &minus; Menor valor) / k</p>
+    <p>Aa = (39 &minus; 6) / 7</p>
+    <p>Aa = 4,7143</p>
+    <p>Aqui arredondamos para baixo, então Aa = 4.</p>
+    <p>Atenção: com 7 classes de amplitude 4, só conseguiríamos ir de 6 até 34 (6 + 7 &middot; 4 = 34), mas o maior valor é 39. Por isso continuamos criando classes de amplitude 4 até incluir o 39, e a tabela fica com 9 classes, de 6 até 42.</p>
+
+    <p><strong>3 passo - Montar a tabela</strong></p>
+    <p>O símbolo ⊢ significa que a classe inclui o limite da esquerda e não inclui o da direita. Por exemplo, 6 ⊢ 10 inclui o 6, mas o 10 já pertence à classe seguinte.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>i</th>
+                <th>Classes</th>
+                <th>fi</th>
+                <th>xi</th>
+                <th>xi²</th>
+                <th>xi²fi</th>
+                <th>xifi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>6 ⊢ 10</td><td>3</td><td>8</td><td>64</td><td>192</td><td>24</td></tr>
+            <tr><td>2</td><td>10 ⊢ 14</td><td>2</td><td>12</td><td>144</td><td>288</td><td>24</td></tr>
+            <tr><td>3</td><td>14 ⊢ 18</td><td>7</td><td>16</td><td>256</td><td>1792</td><td>112</td></tr>
+            <tr><td>4</td><td>18 ⊢ 22</td><td>13</td><td>20</td><td>400</td><td>5200</td><td>260</td></tr>
+            <tr><td>5</td><td>22 ⊢ 26</td><td>6</td><td>24</td><td>576</td><td>3456</td><td>144</td></tr>
+            <tr><td>6</td><td>26 ⊢ 30</td><td>4</td><td>28</td><td>784</td><td>3136</td><td>112</td></tr>
+            <tr><td>7</td><td>30 ⊢ 34</td><td>3</td><td>32</td><td>1024</td><td>3072</td><td>96</td></tr>
+            <tr><td>8</td><td>34 ⊢ 38</td><td>1</td><td>36</td><td>1296</td><td>1296</td><td>36</td></tr>
+            <tr><td>9</td><td>38 ⊢ 42</td><td>1</td><td>40</td><td>1600</td><td>1600</td><td>40</td></tr>
+        </tbody>
+        <tfoot>
+            <tr><td></td><td>Total</td><td>40</td><td></td><td></td><td>20032</td><td>848</td></tr>
+        </tfoot>
+    </table>
+
+    <h3>O que significa cada coluna da tabela</h3>
+    <ul>
+        <li><strong>i</strong>: o número da linha (da classe), só para organizar a tabela.</li>
+        <li><strong>Classes</strong>: os intervalos em que agrupamos os dados.</li>
+        <li><strong>fi</strong> (frequência): quantos dados caem dentro da classe, ou seja, quantos revendedores estão ali. A soma de todos os fi é igual a n.</li>
+        <li><strong>xi</strong> (ponto médio): o valor que representa a classe inteira, calculado somando os dois limites e dividindo por 2. Em 6 ⊢ 10, xi = (6 + 10) / 2 = 8.</li>
+        <li><strong>xi²</strong>: o ponto médio elevado ao quadrado (xi &middot; xi). Serve para calcular a variância.</li>
+        <li><strong>xifi</strong>: o ponto médio vezes a frequência. A soma dessa coluna, dividida por n, dá a média.</li>
+        <li><strong>xi²fi</strong>: o xi² vezes a frequência. A soma dessa coluna é usada na fórmula da variância.</li>
+        <li><strong>&Sigma;</strong> (sigma): significa "somar tudo". A linha Total traz a soma de cada coluna.</li>
+        <li><strong>N</strong>: o total de dados, que aqui é 40.</li>
+        <li><strong>k</strong>: o número de classes, que aqui é 9.</li>
+    </ul>
+
+    <h2>b - Histograma e polígono de frequências</h2>
+    <p>O <strong>histograma</strong> é um gráfico de barras coladas: cada barra é uma classe e a altura da barra é a frequência (fi). O <strong>polígono de frequências</strong> é a linha que liga os pontos médios (xi) do topo das barras, fechando no zero nas duas pontas.</p>
+    <img src="histograma.png" alt="Histograma e polígono de frequências">
+
+    <h2>c - Média aritmética</h2>
+    <p>A média é o valor que representa o conjunto de dados: soma-se tudo e divide-se pela quantidade. Na tabela, cada classe é representada pelo seu ponto médio.</p>
+    <p>Fórmula:</p>
+    <p>x&#772; = &Sigma;(x<sub>i</sub>f<sub>i</sub>) / n</p>
+    <p>Dados da tabela: &Sigma;(x<sub>i</sub>f<sub>i</sub>) = 848 e n = 40</p>
+    <p>x&#772; = 848 / 40</p>
+    <p><strong>x&#772; = 21,2</strong></p>
+    <p>Em média, cada revendedor adquiriu 21,2 unidades.</p>
+
+    <h2>d - Variância e desvio-padrão</h2>
+    <p>A <strong>variância</strong> mede o quanto os dados se espalham em torno da média: quanto maior, mais espalhados. O <strong>desvio-padrão</strong> é a raiz da variância e tem a mesma unidade dos dados, por isso é mais fácil de interpretar.</p>
+    <p>Fórmula da variância:</p>
+    <p>s<sup>2</sup> = (&Sigma;(x<sub>i</sub><sup>2</sup>f<sub>i</sub>) &minus; n &middot; x&#772;<sup>2</sup>) / n</p>
+    <p>Dados da tabela: &Sigma;(x<sub>i</sub><sup>2</sup>f<sub>i</sub>) = 20032, n = 40 e x&#772; = 21,2</p>
+    <p>s<sup>2</sup> = (20032 &minus; 40 &middot; (21,2)<sup>2</sup>) / 40</p>
+    <p>s<sup>2</sup> = (20032 &minus; 40 &middot; 449,44) / 40</p>
+    <p>s<sup>2</sup> = (20032 &minus; 17977,6) / 40</p>
+    <p>s<sup>2</sup> = 2054,4 / 40</p>
+    <p><strong>s<sup>2</sup> = 51,36</strong></p>
+
+    <p>Fórmula do desvio-padrão:</p>
+    <p>s = &radic;(s<sup>2</sup>)</p>
+    <p>s = &radic;51,36</p>
+    <p><strong>s &asymp; 7,1666</strong></p>
+    <p>Observação: aqui dividimos por n. Alguns livros usam n &minus; 1 quando os dados são uma amostra, o que daria s<sup>2</sup> &asymp; 52,68 e s &asymp; 7,26. Use o que o professor ensinou.</p>
+
+    <h2>e - Coeficiente de variação</h2>
+    <p>O coeficiente de variação (CV) mostra o desvio-padrão como porcentagem da média. Ele permite comparar a dispersão de conjuntos de dados diferentes, mesmo com unidades ou tamanhos diferentes. Quanto menor o CV, mais parecidos entre si são os dados.</p>
+    <p>Fórmula:</p>
+    <p>CV = (s / x&#772;) &middot; 100</p>
+    <p>Dados: s = 7,1666 e x&#772; = 21,2</p>
+    <p>CV = (7,1666 / 21,2) &middot; 100</p>
+    <p>CV = 0,3380 &middot; 100</p>
+    <p><strong>CV &asymp; 33,80%</strong></p>
+    <p>Como regra prática (que varia conforme o livro), abaixo de 15% a dispersão é baixa, entre 15% e 30% é média e acima de 30% é alta. Neste exercício, 33,80% indica que as compras dos revendedores variam bastante em torno da média.</p>
+
+    <p><a href="index.html">&larr; Voltar ao início</a></p>
+</body>
+</html>

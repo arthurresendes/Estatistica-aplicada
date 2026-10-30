@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Probabilidade</title>
+</head>
+<body>
+    <p><a href="index.html">&larr; Voltar ao início</a></p>
+
+    <h1>Probabilidade</h1>
+    <p>Aqui vamos resolver dois exercícios: um com união, intersecção e complemento, e outro com probabilidade condicional, em que um evento já aconteceu.</p>
+
+    <h2>Conceitos</h2>
+    <ul>
+        <li><strong>Experimento aleatório:</strong> uma situação cujo resultado não dá para saber antes. Exemplo: sortear uma pessoa.</li>
+        <li><strong>Espaço amostral (&Omega;):</strong> o conjunto de todos os resultados possíveis.</li>
+        <li><strong>Evento:</strong> uma parte do espaço amostral, o que queremos observar. Exemplo: "ser casada".</li>
+        <li><strong>Probabilidade:</strong> P(A) = n(A) / n(&Omega;), ou seja, casos favoráveis divididos por casos possíveis. É sempre um número entre 0 e 1.</li>
+        <li><strong>Complemento:</strong> a chance de o evento não acontecer. P(não A) = 1 &minus; P(A).</li>
+        <li><strong>União (A &cup; B):</strong> acontece A ou B (ou os dois). P(A &cup; B) = P(A) + P(B) &minus; P(A &cap; B).</li>
+        <li><strong>Intersecção (A &cap; B):</strong> acontece A e B ao mesmo tempo.</li>
+        <li><strong>Eventos mutuamente exclusivos:</strong> não podem acontecer juntos, então P(A &cap; B) = 0.</li>
+        <li><strong>Probabilidade condicional P(B | A):</strong> a chance de B acontecer sabendo que A já aconteceu. P(A &cap; B) = P(A) &middot; P(B | A).</li>
+    </ul>
+
+    <h2>Exercício 3</h2>
+
+    <p><strong>3.</strong> O quadro abaixo representa a classificação de um grupo de 30 mulheres, segundo o estado civil e a cor dos cabelos:</p>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Estado civil \ Cor dos cabelos</th>
+                <th>Loira</th>
+                <th>Morena</th>
+                <th>Ruiva</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Casada</td><td>5</td><td>8</td><td>3</td></tr>
+            <tr><td>Solteira</td><td>2</td><td>4</td><td>1</td></tr>
+            <tr><td>Viúva</td><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td>Divorciada</td><td>3</td><td>1</td><td>1</td></tr>
+        </tbody>
+    </table>
+
+    <p>Uma mulher é sorteada neste grupo. Determine a probabilidade dos eventos:</p>
+    <ol class="alternativas">
+        <li>A := Ser casada</li>
+        <li>B := Não ser loira</li>
+        <li>C := Não ser morena nem ruiva</li>
+        <li>D := Ser viúva</li>
+        <li>E := Ser solteira ou casada</li>
+        <li>F := Ser loira e casada</li>
+        <li>G := Ser morena e solteira</li>
+        <li>H := Ser viúva e ruiva</li>
+    </ol>
+
+    <p><strong>1 passo - Achar os totais de cada linha e coluna</strong></p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Estado civil \ Cor dos cabelos</th>
+                <th>Loira</th>
+                <th>Morena</th>
+                <th>Ruiva</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Casada</td><td>5</td><td>8</td><td>3</td><td>16</td></tr>
+            <tr><td>Solteira</td><td>2</td><td>4</td><td>1</td><td>7</td></tr>
+            <tr><td>Viúva</td><td>0</td><td>1</td><td>1</td><td>2</td></tr>
+            <tr><td>Divorciada</td><td>3</td><td>1</td><td>1</td><td>5</td></tr>
+        </tbody>
+        <tfoot>
+            <tr><td>Total</td><td>10</td><td>14</td><td>6</td><td>30</td></tr>
+        </tfoot>
+    </table>
+    <p>Os totais das linhas e das colunas precisam dar o mesmo resultado (30). Se não derem, tem erro de soma.</p>
+
+    <p><strong>2 passo - Aplicar a fórmula</strong></p>
+    <p>Fórmula:</p>
+    <p>P(A) = n(A) / n(&Omega;)</p>
+    <p>Onde n(A) é a quantidade de casos favoráveis e n(&Omega;) = 30 é o total de mulheres.</p>
+
+    <h3>a - Ser casada</h3>
+    <p>Total da linha Casada = 16</p>
+    <p>P(A) = 16 / 30</p>
+    <p><strong>P(A) = 8/15</strong></p>
+
+    <h3>b - Não ser loira</h3>
+    <p>Não ser loira é ser morena ou ruiva: 14 + 6 = 20</p>
+    <p>P(B) = 20 / 30</p>
+    <p><strong>P(B) = 2/3</strong></p>
+    <p>Conferindo pelo complemento: P(B) = 1 &minus; P(loira) = 1 &minus; 10/30 = 20/30.</p>
+
+    <h3>c - Não ser morena nem ruiva</h3>
+    <p>Se não é morena nem ruiva, só pode ser loira: 10</p>
+    <p>P(C) = 10 / 30</p>
+    <p><strong>P(C) = 1/3</strong></p>
+
+    <h3>d - Ser viúva</h3>
+    <p>Total da linha Viúva = 2</p>
+    <p>P(D) = 2 / 30</p>
+    <p><strong>P(D) = 1/15</strong></p>
+
+    <h3>e - Ser solteira ou casada</h3>
+    <p>O "ou" indica união. Sejam S = ser solteira e C = ser casada.</p>
+    <p>Fórmula da união:</p>
+    <p>P(S &cup; C) = P(S) + P(C) &minus; P(S &cap; C)</p>
+    <p>Ninguém é solteira e casada ao mesmo tempo (eventos mutuamente exclusivos), então P(S &cap; C) = 0.</p>
+    <p>P(E) = 7/30 + 16/30 &minus; 0</p>
+    <p>P(E) = 23/30</p>
+    <p><strong>P(E) = 23/30</strong></p>
+
+    <h3>f - Ser loira e casada</h3>
+    <p>O "e" indica intersecção. Olhamos na tabela a célula onde as duas características se encontram: loira e casada = 5.</p>
+    <p>P(F) = 5 / 30</p>
+    <p><strong>P(F) = 1/6</strong></p>
+
+    <h3>g - Ser morena e solteira</h3>
+    <p>Morena e solteira = 4</p>
+    <p>P(G) = 4 / 30</p>
+    <p><strong>P(G) = 2/15</strong></p>
+
+    <h3>h - Ser viúva e ruiva</h3>
+    <p>Viúva e ruiva = 1</p>
+    <p>P(H) = 1 / 30</p>
+    <p><strong>P(H) = 1/30</strong></p>
+
+    <hr>
+    <h2>Exercício 4</h2>
+
+    <p><strong>4.</strong> Uma rifa composta por 15 números irá definir o ganhador de dois prêmios sorteados um de cada vez. Se você adquiriu três números, qual é a probabilidade de ganhar os dois prêmios?</p>
+    <p>Considere os seguintes eventos:</p>
+    <p>G<sub>1</sub> = ganhar o primeiro prêmio e G<sub>2</sub> = ganhar o segundo prêmio.</p>
+
+    <p><strong>1 passo - Entender o problema</strong></p>
+    <p>Os prêmios são sorteados um de cada vez, sem reposição: o número sorteado sai da rifa. Se você ganhou o primeiro prêmio, sobram 14 números e 2 deles são seus. Por isso o segundo sorteio depende do primeiro, e usamos a probabilidade condicional.</p>
+
+    <p><strong>2 passo - Aplicar a fórmula</strong></p>
+    <p>Fórmula:</p>
+    <p>P(G<sub>1</sub> &cap; G<sub>2</sub>) = P(G<sub>1</sub>) &middot; P(G<sub>2</sub> | G<sub>1</sub>)</p>
+    <p>P(G<sub>1</sub>) = 3 / 15</p>
+    <p>P(G<sub>2</sub> | G<sub>1</sub>) = 2 / 14</p>
+    <p>P(G<sub>1</sub> &cap; G<sub>2</sub>) = (3 / 15) &middot; (2 / 14)</p>
+    <p>P(G<sub>1</sub> &cap; G<sub>2</sub>) = 6 / 210</p>
+    <p><strong>P(G<sub>1</sub> &cap; G<sub>2</sub>) = 1/35</strong></p>
+
+    <p><strong>Conferindo por combinação</strong></p>
+    <p>Ganhar os dois prêmios é ter 2 dos seus 3 números entre os 2 sorteados. Das combinações de 15 números tomados 2 a 2, quantas são favoráveis:</p>
+    <p>P = C(3, 2) / C(15, 2) = 3 / 105 = 1/35</p>
+
+    <p><a href="index.html">&larr; Voltar ao início</a></p>
+</body>
+</html>

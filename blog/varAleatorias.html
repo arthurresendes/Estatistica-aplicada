@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Variáveis Aleatórias</title>
+</head>
+<body>
+    <p><a href="index.html">&larr; Voltar ao início</a></p>
+
+    <h1>Variáveis Aleatórias</h1>
+
+    <p>Uma <strong>variável aleatória (X)</strong> associa um número a cada resultado de um experimento aleatório. Por exemplo, ao lançar 2 moedas, X pode ser o número de caras (0, 1 ou 2).</p>
+    <p>Ela é <strong>discreta</strong> quando assume valores que podem ser contados (0, 1, 2...) e <strong>contínua</strong> quando pode assumir qualquer valor de um intervalo. Esta página trata das discretas.</p>
+    <p>Neste material usamos: <strong>p</strong> = probabilidade de sucesso e <strong>q</strong> = probabilidade de fracasso, com q = 1 &minus; p.</p>
+
+    <h2>Distribuição de probabilidade</h2>
+    <p>É a tabela que mostra cada valor possível de X e a sua probabilidade P(X). A soma de todos os P(X) é sempre 1.</p>
+    <p>Exemplo: número de caras em 2 lançamentos de uma moeda.</p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>X</th>
+                <th>P(X)</th>
+                <th>X &middot; P(X)</th>
+                <th>X<sup>2</sup> &middot; P(X)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>0</td><td>1/4</td><td>0</td><td>0</td></tr>
+            <tr><td>1</td><td>2/4</td><td>2/4</td><td>2/4</td></tr>
+            <tr><td>2</td><td>1/4</td><td>2/4</td><td>4/4</td></tr>
+        </tbody>
+        <tfoot>
+            <tr><td>Total</td><td>1</td><td>1</td><td>1,5</td></tr>
+        </tfoot>
+    </table>
+
+    <h3>Probabilidade de um intervalo</h3>
+    <p>Soma-se o P(X) de cada valor incluído.</p>
+    <p>P(X &gt; 0) = P(X = 1) + P(X = 2) = 2/4 + 1/4 = 3/4</p>
+
+    <h3>Esperança E(X)</h3>
+    <p>O valor médio esperado de X, a média ponderada pelas probabilidades. Se repetíssemos o experimento muitas vezes, seria o valor médio obtido.</p>
+    <p>E(X) = &Sigma;(X &middot; P(X))</p>
+    <p>E(X) = 0 + 2/4 + 2/4 = 1</p>
+
+    <h3>Variância VAR(X)</h3>
+    <p>Mede o quanto os valores de X se espalham em torno da esperança.</p>
+    <p>VAR(X) = E(X<sup>2</sup>) &minus; (E(X))<sup>2</sup>, onde E(X<sup>2</sup>) = &Sigma;(X<sup>2</sup> &middot; P(X))</p>
+    <p>VAR(X) = 1,5 &minus; (1)<sup>2</sup> = 0,5</p>
+
+    <h3>Desvio-padrão (&sigma;)</h3>
+    <p>A raiz da variância, na mesma unidade de X.</p>
+    <p>&sigma; = &radic;VAR(X)</p>
+    <p>&sigma; = &radic;0,5 &asymp; 0,7071</p>
+
+    <h3>Propriedades</h3>
+    <p>Sendo a e b constantes:</p>
+    <p>E(aX &plusmn; b) = a &middot; E(X) &plusmn; b</p>
+    <p>VAR(aX &plusmn; b) = a<sup>2</sup> &middot; VAR(X)</p>
+    <p>Somar ou subtrair uma constante muda a média, mas não muda a variância. Multiplicar por a multiplica a média por a e a variância por a<sup>2</sup>.</p>
+
+    <hr>
+    <h2>Bernoulli</h2>
+    <p>Um experimento com <strong>uma única tentativa</strong> e apenas dois resultados possíveis: sucesso (X = 1) ou fracasso (X = 0). Exemplo: lançar uma moeda uma vez e ver se saiu cara.</p>
+    <p>P(X = k) = p<sup>k</sup> &middot; q<sup>1&minus;k</sup>, com k = 0 ou k = 1</p>
+    <p>E(X) = p</p>
+    <p>VAR(X) = p &middot; q</p>
+    <p>q = 1 &minus; p</p>
+    <p>Exemplo: moeda justa, com p = 1/2 e q = 1/2. Então E(X) = 1/2 e VAR(X) = 1/2 &middot; 1/2 = 1/4.</p>
+
+    <hr>
+    <h2>Binomial</h2>
+    <p>O número de sucessos em <strong>n tentativas</strong> independentes, todas com a mesma probabilidade de sucesso p. É a soma de n variáveis de Bernoulli. Exemplo: número de caras em 10 lançamentos.</p>
+    <p>P(X = k) = C(n, k) &middot; p<sup>k</sup> &middot; q<sup>n&minus;k</sup>, com k = 0, 1, ..., n</p>
+    <p>Onde C(n, k) = n! / (k! &middot; (n &minus; k)!) é o número de combinações, ou seja, de quantas formas k sucessos podem aparecer em n tentativas.</p>
+    <p>E(X) = n &middot; p</p>
+    <p>VAR(X) = n &middot; p &middot; q</p>
+    <p>q = 1 &minus; p</p>
+    <p>O exemplo da tabela acima é uma binomial com n = 2 e p = 1/2: E(X) = 2 &middot; 1/2 = 1 e VAR(X) = 2 &middot; 1/2 &middot; 1/2 = 0,5.</p>
+    <p>Exemplo resolvido: probabilidade de sair exatamente 2 caras em 3 lançamentos (n = 3, p = 1/2, k = 2):</p>
+    <p>P(X = 2) = C(3, 2) &middot; (1/2)<sup>2</sup> &middot; (1/2)<sup>1</sup> = 3 &middot; 1/4 &middot; 1/2 = 3/8</p>
+
+    <hr>
+    <h2>Poisson</h2>
+    <p>O número de ocorrências de um evento em um <strong>intervalo</strong> de tempo (ou espaço), quando os eventos são raros, acontecem de forma independente e a uma taxa média constante. Exemplo: número de ligações recebidas por hora.</p>
+    <p>P(X = k) = (e<sup>&minus;&lambda;</sup> &middot; &lambda;<sup>k</sup>) / k!, com k = 0, 1, 2, ...</p>
+    <p>Onde &lambda; é a média de ocorrências no intervalo e e &asymp; 2,71828.</p>
+    <p>E(X) = &lambda;</p>
+    <p>VAR(X) = &lambda;</p>
+    <p>Na Poisson, a esperança e a variância são iguais.</p>
+    <p>Exemplo resolvido: uma central recebe em média 2 ligações por hora (&lambda; = 2). A probabilidade de não receber nenhuma em uma hora é:</p>
+    <p>P(X = 0) = (e<sup>&minus;2</sup> &middot; 2<sup>0</sup>) / 0! = e<sup>&minus;2</sup> &asymp; 0,1353</p>
+
+    <hr>
+    <h2>Resumo das distribuições</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Distribuição</th>
+                <th>Quando usar</th>
+                <th>E(X)</th>
+                <th>VAR(X)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Bernoulli</td><td>1 tentativa, sucesso ou fracasso</td><td>p</td><td>p &middot; q</td></tr>
+            <tr><td>Binomial</td><td>n tentativas independentes</td><td>n &middot; p</td><td>n &middot; p &middot; q</td></tr>
+            <tr><td>Poisson</td><td>ocorrências em um intervalo</td><td>&lambda;</td><td>&lambda;</td></tr>
+        </tbody>
+    </table>
+
+    <p><a href="index.html">&larr; Voltar ao início</a></p>
+</body>
+</html>

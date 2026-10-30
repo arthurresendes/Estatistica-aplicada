@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Conceitos de Estatística Aplicada</title>
+</head>
+<body>
+    <p><a href="index.html">&larr; Voltar ao início</a></p>
+
+    <h1>Conceitos de Estatística</h1>
+    <p>Esta página reúne as definições base usadas nas outras páginas do blog.</p>
+
+    <h2>O que é estatística?</h2>
+    <p>Estatística é a ciência que coleta, organiza, analisa, interpreta e apresenta dados, transformando números soltos em informação útil para apoiar decisões.</p>
+
+    <h2>População, amostra e censo</h2>
+
+    <h3>População</h3>
+    <p>Todo o conjunto de elementos que se quer estudar.</p>
+    <p>Exemplo: todos os alunos da faculdade.</p>
+
+    <h3>Amostra</h3>
+    <p>Uma parte da população, escolhida de forma aleatória (ao acaso), usada para representar o todo.</p>
+    <p>Exemplo: 40 alunos sorteados entre todos os alunos da faculdade.</p>
+
+    <h3>Censo</h3>
+    <p>A coleta de dados de todos os elementos da população, sem deixar ninguém de fora.</p>
+
+    <h2>Variável</h2>
+    <p>Qualquer característica que se quer analisar e que pode mudar de um elemento para outro.</p>
+    <p>Exemplos: idade, altura, cor dos olhos, número de filhos.</p>
+
+    <h3>Tipos de variáveis</h3>
+
+    <h4>Quantitativa (valores numéricos)</h4>
+    <h5>Discreta</h5>
+    <p>Resultado de uma contagem, por isso só assume valores inteiros.</p>
+    <p>Exemplo: número de filhos (0, 1, 2, 3...).</p>
+    <h5>Contínua</h5>
+    <p>Resultado de uma medição, por isso pode assumir qualquer valor dentro de um intervalo, inclusive com vírgula.</p>
+    <p>Exemplo: altura (1,72 m) e peso (68,5 kg).</p>
+
+    <h4>Qualitativa (categorias)</h4>
+    <h5>Nominal</h5>
+    <p>Categorias sem ordem entre elas.</p>
+    <p>Exemplo: cor dos olhos, sexo, curso.</p>
+    <h5>Ordinal</h5>
+    <p>Categorias que seguem uma ordem natural.</p>
+    <p>Exemplo: grau de instrução (fundamental, médio, superior) e tamanho (P, M, G).</p>
+
+    <h2>Organizando os dados</h2>
+
+    <h3>Dados brutos</h3>
+    <p>Os dados do jeito que foram coletados, sem nenhuma organização.</p>
+    <p>Exemplo: 2, 4, 1, 8, 5, 7</p>
+
+    <h3>Rol</h3>
+    <p>Os dados colocados em ordem, crescente ou decrescente.</p>
+    <p>Dados brutos: 2, 4, 1, 8, 5, 7</p>
+    <p>Rol (crescente): 1, 2, 4, 5, 7, 8</p>
+
+    <h3>Ramos e Folhas</h3>
+    <p>Uma forma de organizar os números sem perder o valor de cada um. O <strong>ramo</strong> é o número da frente (aqui, a dezena) e a <strong>folha</strong> é o último dígito (a unidade). O ramo fica à esquerda do traço | e as folhas, à direita.</p>
+    <p>Dados: 12, 15, 17, 17, 21, 22, 24, 25, 31, 33, 35</p>
+    <p>1 | 2 5 7 7</p>
+    <p>2 | 1 2 4 5</p>
+    <p>3 | 1 3 5</p>
+    <p>Lendo a primeira linha: ramo 1 com folhas 2, 5, 7 e 7 representa os números 12, 15, 17 e 17.</p>
+
+    <h2>Frequências</h2>
+
+    <h3>Frequência absoluta (fi)</h3>
+    <p>Quantas vezes cada valor aparece nos dados.</p>
+
+    <h3>Frequência não agrupada</h3>
+    <p>Usada quando há poucos valores diferentes: listamos cada valor e quantas vezes ele aparece.</p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Valor</th>
+                <th>Frequência (fi)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>5</td><td>3</td></tr>
+            <tr><td>6</td><td>1</td></tr>
+            <tr><td>7</td><td>3</td></tr>
+            <tr><td>8</td><td>2</td></tr>
+        </tbody>
+        <tfoot>
+            <tr><td>Total</td><td>9</td></tr>
+        </tfoot>
+    </table>
+    <p>Quando há muitos valores diferentes, agrupamos os dados em classes (intervalos). Isso é feito na página de Estatística Descritiva.</p>
+
+    <h3>Frequência relativa (fr)</h3>
+    <p>A parte do total que cada valor representa, em fração ou em porcentagem.</p>
+    <p>Fórmula: fr = fi / n (multiplicando por 100 temos a porcentagem)</p>
+    <p>Aqui, n é o total de dados. A soma de todas as frequências relativas é 100%.</p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Curso</th>
+                <th>Absoluto (fi)</th>
+                <th>Relativo (fr)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>DSM</td><td>20</td><td>40%</td></tr>
+            <tr><td>ADS</td><td>15</td><td>30%</td></tr>
+            <tr><td>SI</td><td>10</td><td>20%</td></tr>
+            <tr><td>Gestão</td><td>5</td><td>10%</td></tr>
+        </tbody>
+        <tfoot>
+            <tr><td>Total</td><td>50</td><td>100%</td></tr>
+        </tfoot>
+    </table>
+    <p>Exemplo: DSM tem 20 alunos de um total de 50, então fr = 20 / 50 = 0,40 = 40%.</p>
+
+    <h3>Frequência acumulada (Fi)</h3>
+    <p>A soma da frequência de cada linha com todas as anteriores. Mostra quantos dados existem até aquela linha.</p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Curso</th>
+                <th>fi</th>
+                <th>Fi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>DSM</td><td>20</td><td>20</td></tr>
+            <tr><td>ADS</td><td>15</td><td>35</td></tr>
+            <tr><td>SI</td><td>10</td><td>45</td></tr>
+            <tr><td>Gestão</td><td>5</td><td>50</td></tr>
+        </tbody>
+    </table>
+    <p>Conta: 20, depois 20 + 15 = 35, depois 35 + 10 = 45 e por fim 45 + 5 = 50. O último valor da Fi sempre é igual ao total de dados.</p>
+
+    <h2>Amplitude</h2>
+    <p>A distância entre o maior e o menor valor dos dados.</p>
+    <p>Fórmula: Amplitude = Maior valor &minus; Menor valor</p>
+    <p>Exemplo: dados 1, 2, 3, 4, 5, então Amplitude = 5 &minus; 1 = 4</p>
+
+    <h2>Regra de Sturges</h2>
+    <p>Uma fórmula para decidir <strong>quantas classes</strong> (intervalos) usar na tabela de frequências, de acordo com a quantidade de dados.</p>
+    <p>Fórmula: k = 1 + 3,3 &middot; log(n)</p>
+    <p>Onde k é o número de classes e n é o total de dados. O resultado é sempre arredondado para cima.</p>
+    <p>Depois de achar k, calculamos a amplitude de cada classe:</p>
+    <p>Amplitude de classe = (Maior valor &minus; Menor valor) / k</p>
+    <p>O passo a passo completo está na página de Estatística Descritiva.</p>
+
+    <h2>Probabilidade</h2>
+    <p>A medida da chance de um evento acontecer. É sempre um número entre 0 (impossível) e 1 (certo), ou entre 0% e 100%.</p>
+    <p>Fórmula: P(A) = casos favoráveis / casos possíveis</p>
+    <p>Exemplo: ao lançar um dado, a chance de sair 4 é 1/6.</p>
+
+    <p><a href="index.html">&larr; Voltar ao início</a></p>
+</body>
+</html>
