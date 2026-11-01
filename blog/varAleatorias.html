@@ -71,6 +71,65 @@
     <p>q = 1 &minus; p</p>
     <p>Exemplo: moeda justa, com p = 1/2 e q = 1/2. Então E(X) = 1/2 e VAR(X) = 1/2 &middot; 1/2 = 1/4.</p>
 
+    <h3>Exercício - Bernoulli</h3>
+    <p><strong>1.</strong> Uma máquina produz peças e cada peça tem probabilidade de 0,2 de sair com defeito. Uma peça é escolhida ao acaso. Seja X = 1 se a peça é defeituosa e X = 0 se não é.</p>
+    <ol class="alternativas">
+        <li>Qual é a distribuição de probabilidade de X?</li>
+        <li>Determine P(X = 1) e P(X = 0).</li>
+        <li>Determine a esperança E(X).</li>
+        <li>Determine a variância VAR(X) e o desvio-padrão.</li>
+    </ol>
+
+    <p><strong>1 passo - Achar p e q</strong></p>
+    <p>O sucesso é a peça sair com defeito, então p = 0,2.</p>
+    <p>q = 1 &minus; p</p>
+    <p>q = 1 &minus; 0,2</p>
+    <p><strong>q = 0,8</strong></p>
+
+    <p><strong>b -</strong></p>
+    <p>Fórmula:</p>
+    <p>P(X = k) = p<sup>k</sup> &middot; q<sup>1&minus;k</sup></p>
+    <p>Para k = 1:</p>
+    <p>P(X = 1) = (0,2)<sup>1</sup> &middot; (0,8)<sup>0</sup></p>
+    <p>P(X = 1) = 0,2 &middot; 1</p>
+    <p><strong>P(X = 1) = 0,2</strong></p>
+    <p>Para k = 0:</p>
+    <p>P(X = 0) = (0,2)<sup>0</sup> &middot; (0,8)<sup>1</sup></p>
+    <p>P(X = 0) = 1 &middot; 0,8</p>
+    <p><strong>P(X = 0) = 0,8</strong></p>
+
+    <p><strong>a -</strong></p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>X</th>
+                <th>P(X)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>0</td><td>0,8</td></tr>
+            <tr><td>1</td><td>0,2</td></tr>
+        </tbody>
+        <tfoot>
+            <tr><td>Total</td><td>1</td></tr>
+        </tfoot>
+    </table>
+
+    <p><strong>c -</strong></p>
+    <p>Fórmula:</p>
+    <p>E(X) = p</p>
+    <p><strong>E(X) = 0,2</strong></p>
+
+    <p><strong>d -</strong></p>
+    <p>Fórmula da variância:</p>
+    <p>VAR(X) = p &middot; q</p>
+    <p>VAR(X) = 0,2 &middot; 0,8</p>
+    <p><strong>VAR(X) = 0,16</strong></p>
+    <p>Fórmula do desvio-padrão:</p>
+    <p>&sigma; = &radic;VAR(X)</p>
+    <p>&sigma; = &radic;0,16</p>
+    <p><strong>&sigma; = 0,4</strong></p>
+
     <hr>
     <h2>Binomial</h2>
     <p>O número de sucessos em <strong>n tentativas</strong> independentes, todas com a mesma probabilidade de sucesso p. É a soma de n variáveis de Bernoulli. Exemplo: número de caras em 10 lançamentos.</p>
@@ -83,6 +142,55 @@
     <p>Exemplo resolvido: probabilidade de sair exatamente 2 caras em 3 lançamentos (n = 3, p = 1/2, k = 2):</p>
     <p>P(X = 2) = C(3, 2) &middot; (1/2)<sup>2</sup> &middot; (1/2)<sup>1</sup> = 3 &middot; 1/4 &middot; 1/2 = 3/8</p>
 
+    <h3>Exercício - Binomial</h3>
+    <p><strong>2.</strong> Uma prova tem 5 questões de múltipla escolha, cada uma com 4 alternativas e só uma correta. Um aluno não estudou e responde todas ao acaso. Seja X o número de questões que ele acerta.</p>
+    <ol class="alternativas">
+        <li>Quais são os valores de n, p e q?</li>
+        <li>Qual é a probabilidade de acertar exatamente 2 questões?</li>
+        <li>Qual é a probabilidade de não acertar nenhuma?</li>
+        <li>Qual é a probabilidade de acertar pelo menos 1 questão?</li>
+        <li>Determine E(X) e VAR(X).</li>
+    </ol>
+
+    <p><strong>a -</strong></p>
+    <p>n é o número de tentativas, que são as 5 questões: <strong>n = 5</strong></p>
+    <p>O sucesso é acertar a questão. Há 1 alternativa correta entre 4:</p>
+    <p><strong>p = 1/4</strong></p>
+    <p>q = 1 &minus; p</p>
+    <p>q = 1 &minus; 1/4</p>
+    <p><strong>q = 3/4</strong></p>
+
+    <p><strong>b -</strong></p>
+    <p>Fórmula:</p>
+    <p>P(X = k) = C(n, k) &middot; p<sup>k</sup> &middot; q<sup>n&minus;k</sup></p>
+    <p>Dados: n = 5, k = 2, p = 1/4 e q = 3/4</p>
+    <p>P(X = 2) = C(5, 2) &middot; (1/4)<sup>2</sup> &middot; (3/4)<sup>3</sup></p>
+    <p>C(5, 2) = 5! / (2! &middot; 3!) = 10</p>
+    <p>P(X = 2) = 10 &middot; (1/16) &middot; (27/64)</p>
+    <p>P(X = 2) = 270 / 1024</p>
+    <p><strong>P(X = 2) &asymp; 0,2637</strong></p>
+
+    <p><strong>c -</strong></p>
+    <p>Dados: k = 0</p>
+    <p>P(X = 0) = C(5, 0) &middot; (1/4)<sup>0</sup> &middot; (3/4)<sup>5</sup></p>
+    <p>P(X = 0) = 1 &middot; 1 &middot; (243/1024)</p>
+    <p><strong>P(X = 0) &asymp; 0,2373</strong></p>
+
+    <p><strong>d -</strong></p>
+    <p>"Pelo menos 1" é tudo, menos nenhum acerto:</p>
+    <p>P(X &ge; 1) = 1 &minus; P(X = 0)</p>
+    <p>P(X &ge; 1) = 1 &minus; 0,2373</p>
+    <p><strong>P(X &ge; 1) &asymp; 0,7627</strong></p>
+
+    <p><strong>e -</strong></p>
+    <p>Fórmulas:</p>
+    <p>E(X) = n &middot; p</p>
+    <p>E(X) = 5 &middot; 1/4</p>
+    <p><strong>E(X) = 5/4 = 1,25</strong></p>
+    <p>VAR(X) = n &middot; p &middot; q</p>
+    <p>VAR(X) = 5 &middot; 1/4 &middot; 3/4</p>
+    <p><strong>VAR(X) = 15/16 = 0,9375</strong></p>
+
     <hr>
     <h2>Poisson</h2>
     <p>O número de ocorrências de um evento em um <strong>intervalo</strong> de tempo (ou espaço), quando os eventos são raros, acontecem de forma independente e a uma taxa média constante. Exemplo: número de ligações recebidas por hora.</p>
@@ -93,6 +201,80 @@
     <p>Na Poisson, a esperança e a variância são iguais.</p>
     <p>Exemplo resolvido: uma central recebe em média 2 ligações por hora (&lambda; = 2). A probabilidade de não receber nenhuma em uma hora é:</p>
     <p>P(X = 0) = (e<sup>&minus;2</sup> &middot; 2<sup>0</sup>) / 0! = e<sup>&minus;2</sup> &asymp; 0,1353</p>
+
+    <h3>Exercício - Poisson</h3>
+    <p><strong>3.</strong> Uma central de atendimento recebe, em média, 3 ligações por minuto. Seja X o número de ligações recebidas em um minuto. Use e<sup>&minus;3</sup> &asymp; 0,0498.</p>
+    <ol class="alternativas">
+        <li>Qual é o valor de &lambda;?</li>
+        <li>Qual é a probabilidade de não receber nenhuma ligação em um minuto?</li>
+        <li>Qual é a probabilidade de receber exatamente 2 ligações em um minuto?</li>
+        <li>Qual é a probabilidade de receber pelo menos 1 ligação em um minuto?</li>
+        <li>Determine E(X) e VAR(X).</li>
+        <li>Qual é a probabilidade de receber pelo menos 2 ligações em 5 minutos? Use e<sup>&minus;15</sup> &asymp; 0,000000306.</li>
+    </ol>
+
+    <p><strong>a -</strong></p>
+    <p>O &lambda; é a média de ocorrências no intervalo da pergunta. Como a média é de 3 ligações por minuto e a pergunta é sobre 1 minuto:</p>
+    <p><strong>&lambda; = 3</strong></p>
+
+    <p><strong>b -</strong></p>
+    <p>Fórmula:</p>
+    <p>P(X = k) = (e<sup>&minus;&lambda;</sup> &middot; &lambda;<sup>k</sup>) / k!</p>
+    <p>Dados: &lambda; = 3 e k = 0</p>
+    <p>P(X = 0) = (e<sup>&minus;3</sup> &middot; 3<sup>0</sup>) / 0!</p>
+    <p>P(X = 0) = (e<sup>&minus;3</sup> &middot; 1) / 1</p>
+    <p><strong>P(X = 0) = e<sup>&minus;3</sup> &asymp; 0,0498</strong></p>
+
+    <p><strong>c -</strong></p>
+    <p>Dados: &lambda; = 3 e k = 2</p>
+    <p>P(X = 2) = (e<sup>&minus;3</sup> &middot; 3<sup>2</sup>) / 2!</p>
+    <p>P(X = 2) = (0,0498 &middot; 9) / 2</p>
+    <p>P(X = 2) = 0,4482 / 2</p>
+    <p><strong>P(X = 2) &asymp; 0,2241</strong></p>
+
+    <p><strong>d -</strong></p>
+    <p>"Pelo menos 1" é tudo, menos nenhuma ligação:</p>
+    <p>P(X &ge; 1) = 1 &minus; P(X = 0)</p>
+    <p>P(X &ge; 1) = 1 &minus; 0,0498</p>
+    <p><strong>P(X &ge; 1) &asymp; 0,9502</strong></p>
+
+    <p><strong>e -</strong></p>
+    <p>Na Poisson, a esperança e a variância são iguais ao &lambda;:</p>
+    <p><strong>E(X) = &lambda; = 3</strong></p>
+    <p><strong>VAR(X) = &lambda; = 3</strong></p>
+
+    <p><strong>f -</strong></p>
+    <p>Agora o intervalo mudou para 5 minutos, então o &lambda; também muda. Achamos o novo &lambda; com uma regra de três:</p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Tempo (minutos)</th>
+                <th>Ligações (média)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>3</td></tr>
+            <tr><td>5</td><td>x</td></tr>
+        </tbody>
+    </table>
+    <p>x = (5 &middot; 3) / 1</p>
+    <p><strong>&lambda; = 15</strong></p>
+
+    <p>"Pelo menos 2" é tudo, menos 0 e 1 ligação:</p>
+    <p>P(X &ge; 2) = 1 &minus; P(X = 0) &minus; P(X = 1)</p>
+
+    <p>Para k = 0:</p>
+    <p>P(X = 0) = (e<sup>&minus;15</sup> &middot; 15<sup>0</sup>) / 0!</p>
+    <p>P(X = 0) = e<sup>&minus;15</sup> &asymp; 0,0000003</p>
+
+    <p>Para k = 1:</p>
+    <p>P(X = 1) = (e<sup>&minus;15</sup> &middot; 15<sup>1</sup>) / 1!</p>
+    <p>P(X = 1) = 0,000000306 &middot; 15</p>
+    <p>P(X = 1) &asymp; 0,0000046</p>
+
+    <p>P(X &ge; 2) = 1 &minus; 0,0000003 &minus; 0,0000046</p>
+    <p><strong>P(X &ge; 2) &asymp; 0,999995</strong></p>
+    <p>Como esperamos 15 ligações em 5 minutos, é quase certo que cheguem pelo menos 2.</p>
 
     <hr>
     <h2>Resumo das distribuições</h2>
