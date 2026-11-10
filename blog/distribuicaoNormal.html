@@ -1,9 +1,297 @@
+
 <!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="utf-8">
-    <title>Distribuição normal</title>
-  </head>
-  <body>
-  </body>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distribuição Normal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Distribuição Normal</h1>
+
+    <p>
+        A distribuição normal é uma distribuição de probabilidade contínua,
+        representada por uma curva em formato de sino. Ela é definida pela
+        média (μ) e pelo desvio-padrão (σ).
+    </p>
+
+    <p>
+        Para resolver exercícios envolvendo essa distribuição, utilizamos a
+        padronização dos valores, transformando-os em escores Z. Dessa forma,
+        conseguimos consultar a tabela da distribuição normal padrão.
+    </p>
+
+    <h2>1. Fórmula da padronização</h2>
+
+    <p>
+        A fórmula utilizada para encontrar o valor de Z é:
+    </p>
+
+    <p>
+        <strong>Z = (X - μ) / σ</strong>
+    </p>
+
+    <ul>
+        <li><strong>X:</strong> valor que queremos analisar.</li>
+        <li><strong>μ:</strong> média da distribuição.</li>
+        <li><strong>σ:</strong> desvio-padrão.</li>
+        <li><strong>Z:</strong> valor padronizado.</li>
+    </ul>
+
+    <h2>2. Como interpretar a tabela Z</h2>
+
+    <p>
+        A tabela utilizada neste conteúdo apresenta a área entre a média
+        (Z = 0) e um determinado valor positivo de Z. Portanto, ela não
+        apresenta diretamente a probabilidade acumulada à esquerda.
+    </p>
+
+    <p>
+        Para consultar um valor, utilizamos a linha correspondente à primeira
+        casa decimal e a coluna correspondente à segunda casa decimal.
+    </p>
+
+    <p>
+        Por exemplo, para Z = 1,96, consultamos a linha 1,9 e a coluna 0,06.
+        O resultado encontrado é aproximadamente 0,475002.
+    </p>
+
+    <h3>Regras para utilizar a tabela</h3>
+
+    <ul>
+        <li>
+            <strong>Z positivo:</strong> a área entre a média e o valor
+            positivo é consultada diretamente na tabela.
+        </li>
+        <li>
+            <strong>Z negativo:</strong> utilizamos a simetria da curva
+            normal para consultar o valor positivo correspondente.
+        </li>
+        <li>
+            <strong>Intervalo que atravessa a média:</strong> somamos as
+            duas áreas encontradas na tabela.
+        </li>
+        <li>
+            <strong>Intervalo do mesmo lado da média:</strong> subtraímos
+            a menor área da maior área.
+        </li>
+        <li>
+            <strong>Probabilidade de cauda:</strong> subtraímos a área
+            encontrada de 0,5, quando queremos uma das extremidades.
+        </li>
+    </ul>
+
+    <hr>
+
+    <h2>3. Exercício resolvido</h2>
+
+    <p>
+        Um banco mede o tempo de atendimento de seus clientes no caixa.
+        O tempo se distribui normalmente, com média de 20 minutos e
+        desvio-padrão de 5 minutos.
+    </p>
+
+    <p><strong>Dados do exercício:</strong></p>
+
+    <ul>
+        <li>Média: μ = 20 minutos.</li>
+        <li>Desvio-padrão: σ = 5 minutos.</li>
+    </ul>
+
+    <h3>a) Qual é a probabilidade de um atendimento durar entre 15 e 30 minutos?</h3>
+
+    <p><strong>1º passo: padronizar os dois valores.</strong></p>
+
+    <p>Para X = 15:</p>
+
+    <p>Z = (15 - 20) / 5 = -1,00</p>
+
+    <p>Para X = 30:</p>
+
+    <p>Z = (30 - 20) / 5 = 2,00</p>
+
+    <p><strong>2º passo: consultar a tabela.</strong></p>
+
+    <ul>
+        <li>Z = 1,00 → área = 0,341345.</li>
+        <li>Z = 2,00 → área = 0,477250.</li>
+    </ul>
+
+    <p>
+        Como o intervalo vai de um valor negativo para um positivo,
+        atravessando a média, devemos somar as duas áreas.
+    </p>
+
+    <p>
+        P(-1,00 &lt; Z &lt; 2,00) = 0,341345 + 0,477250
+    </p>
+
+    <p>
+        P(-1,00 &lt; Z &lt; 2,00) = 0,818595
+    </p>
+
+    <p><strong>Resposta: aproximadamente 81,86%.</strong></p>
+
+    <hr>
+
+    <h3>b) Qual é a probabilidade de um atendimento durar entre 25 e 32,5 minutos?</h3>
+
+    <p><strong>1º passo: padronizar os valores.</strong></p>
+
+    <p>Para X = 25:</p>
+
+    <p>Z = (25 - 20) / 5 = 1,00</p>
+
+    <p>Para X = 32,5:</p>
+
+    <p>Z = (32,5 - 20) / 5 = 2,50</p>
+
+    <p><strong>2º passo: consultar a tabela.</strong></p>
+
+    <ul>
+        <li>Z = 1,00 → área = 0,341345.</li>
+        <li>Z = 2,50 → área = 0,493790.</li>
+    </ul>
+
+    <p>
+        Como os dois valores estão do mesmo lado da média, devemos
+        subtrair a menor área da maior.
+    </p>
+
+    <p>
+        P(1,00 &lt; Z &lt; 2,50) = 0,493790 - 0,341345
+    </p>
+
+    <p>
+        P(1,00 &lt; Z &lt; 2,50) = 0,152445
+    </p>
+
+    <p><strong>Resposta: aproximadamente 15,24%.</strong></p>
+
+    <hr>
+
+    <h3>c) Qual é a probabilidade de um atendimento durar menos de 12 minutos?</h3>
+
+    <p><strong>1º passo: padronizar o valor.</strong></p>
+
+    <p>Z = (12 - 20) / 5 = -1,60</p>
+
+    <p><strong>2º passo: consultar a tabela.</strong></p>
+
+    <p>
+        Como a tabela apresenta valores positivos, utilizamos a simetria
+        da distribuição normal e consultamos Z = 1,60.
+    </p>
+
+    <p>Z = 1,60 → área = 0,445201.</p>
+
+    <p><strong>3º passo: encontrar a área à esquerda.</strong></p>
+
+    <p>
+        A área total à esquerda da média corresponde a 0,5.
+        Portanto, subtraímos a área encontrada na tabela.
+    </p>
+
+    <p>
+        P(Z &lt; -1,60) = 0,5 - 0,445201
+    </p>
+
+    <p>
+        P(Z &lt; -1,60) = 0,054799
+    </p>
+
+    <p><strong>Resposta: aproximadamente 5,48%.</strong></p>
+
+    <hr>
+
+    <h3>d) O banco quer premiar os 2,5% dos atendimentos mais rápidos. Qual é o tempo máximo de atendimento para entrar nesse grupo?</h3>
+
+    <p>
+        Neste item, precisamos encontrar o tempo correspondente aos
+        2,5% menores valores da distribuição.
+    </p>
+
+    <p><strong>1º passo: interpretar a probabilidade.</strong></p>
+
+    <p>
+        Os 2,5% mais rápidos representam a área à esquerda do valor
+        procurado:
+    </p>
+
+    <p>P(Z &lt; z) = 0,025</p>
+
+    <p>
+        Como a tabela apresenta a área entre a média e um valor positivo,
+        calculamos:
+    </p>
+
+    <p>0,5 - 0,025 = 0,475</p>
+
+    <p><strong>2º passo: localizar o valor na tabela.</strong></p>
+
+    <p>
+        Procuramos o valor mais próximo de 0,475 na tabela. Encontramos
+        0,475002, correspondente a Z = 1,96.
+    </p>
+
+    <p>
+        Como estamos procurando os 2,5% da extremidade esquerda,
+        utilizamos Z = -1,96.
+    </p>
+
+    <p><strong>3º passo: retornar ao valor original.</strong></p>
+
+    <p>
+        Utilizamos a fórmula da padronização isolando X:
+    </p>
+
+    <p>X = μ + Z × σ</p>
+
+    <p>X = 20 + (-1,96 × 5)</p>
+
+    <p>X = 20 - 9,8</p>
+
+    <p>X = 10,2 minutos</p>
+
+    <p>
+        <strong>
+            Resposta: o tempo máximo de atendimento para entrar no grupo
+            dos 2,5% mais rápidos é de aproximadamente 10,2 minutos.
+        </strong>
+    </p>
+
+    <hr>
+
+    <h2>4. Resumo dos resultados</h2>
+
+    <table border="1">
+        <tr>
+            <th>Item</th>
+            <th>Probabilidade ou resultado</th>
+        </tr>
+        <tr>
+            <td>a)</td>
+            <td>81,86%</td>
+        </tr>
+        <tr>
+            <td>b)</td>
+            <td>15,24%</td>
+        </tr>
+        <tr>
+            <td>c)</td>
+            <td>5,48%</td>
+        </tr>
+        <tr>
+            <td>d)</td>
+            <td>10,2 minutos</td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <p>
+        <a href="index.html">Voltar para a página inicial</a>
+    </p>
+</body>
 </html>
