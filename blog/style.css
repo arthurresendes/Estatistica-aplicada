@@ -162,6 +162,11 @@ img {
     margin: 2rem auto;
 }
 
+img.mapa {
+    width: 100%;
+    max-width: 1000px;
+}
+
 sub, sup {
     line-height: 0;
 }
