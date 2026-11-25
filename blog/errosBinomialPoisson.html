@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Erros comuns: Binomial e Poisson</title>
+</head>
+<body>
+    <p><a href="index.html">&larr; Voltar ao início</a></p>
+
+    <h1>Erros comuns: Binomial e Poisson</h1>
+    <p>Os erros que mais aparecem nos exercícios de Binomial e Poisson: qual distribuição escolher, quando dá para usar as duas e como não se perder em "no máximo", "no mínimo", "com" e "sem".</p>
+
+    <h2>1. Qual distribuição usar</h2>
+    <p>Olhe o que o enunciado entrega:</p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>O enunciado tem</th>
+                <th>Use</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1 tentativa, sucesso ou fracasso</td><td>Bernoulli</td></tr>
+            <tr><td>n tentativas e p, com n &lt; 30</td><td>Binomial</td></tr>
+            <tr><td>n tentativas e p, com n &ge; 30 e p pequeno</td><td>Poisson, com &lambda; = n &middot; p</td></tr>
+            <tr><td>Uma média por hora, minuto, km (tempo ou espaço) e nenhum n</td><td>Poisson, com &lambda; = a média</td></tr>
+        </tbody>
+    </table>
+    <p><strong>O que é p pequeno?</strong> Não existe um número fixo. A regra mais usada é p &le; 0,1 (10% ou menos). Nos exercícios da folha aparecem valores como 0,2% e 0,5%. Se tiver dúvida, use o critério que o professor ensinou.</p>
+
+    <h2>2. Quando dá para usar as duas</h2>
+    <p>Quando há n e p, a Binomial sempre vale. O problema é que, com n grande, o C(n, k) e as potências ficam difíceis de calcular. Por isso, quando n &ge; 30 e p é pequeno, a Poisson dá quase o mesmo resultado com uma conta bem mais curta:</p>
+    <p>&lambda; = n &middot; p</p>
+    <p>Exemplo: n = 100 e p = 0,02, então &lambda; = 100 &middot; 0,02 = 2.</p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>k</th>
+                <th>Binomial</th>
+                <th>Poisson (&lambda; = 2)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>0</td><td>0,132620</td><td>0,135335</td></tr>
+            <tr><td>1</td><td>0,270652</td><td>0,270671</td></tr>
+            <tr><td>2</td><td>0,273414</td><td>0,270671</td></tr>
+            <tr><td>3</td><td>0,182276</td><td>0,180447</td></tr>
+        </tbody>
+    </table>
+    <p>Os valores ficam muito parecidos.</p>
+
+    <h3>Quando NÃO usar a Poisson no lugar da Binomial</h3>
+    <p>Se o p não é pequeno, a aproximação falha. Exemplo: n = 20 e p = 0,4, então &lambda; = 20 &middot; 0,4 = 8.</p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>k</th>
+                <th>Binomial</th>
+                <th>Poisson (&lambda; = 8)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>4</td><td>0,034991</td><td>0,057252</td></tr>
+            <tr><td>8</td><td>0,179706</td><td>0,139587</td></tr>
+        </tbody>
+    </table>
+    <p>Aqui as respostas são bem diferentes. Com n &lt; 30 ou p grande, fique na Binomial.</p>
+
+    <h3>Quando só a Poisson serve</h3>
+    <p>Se o enunciado só dá uma média por intervalo (por hora, por km) e não diz n, não existe Binomial. É Poisson, e o &lambda; é a própria média do intervalo da pergunta.</p>
+
+    <hr>
+    <h2>3. Os erros mais comuns</h2>
+
+    <h3>Erro 1: o p não é do que o k conta</h3>
+    <p>O p tem que ser a probabilidade do evento que o k conta. Antes de calcular, escreva:</p>
+    <p>k = número de ... (com atraso, com defeito, acertos)</p>
+    <p>p = probabilidade desse mesmo evento</p>
+    <p>Se o enunciado dá 25% de atraso e o k conta voos com atraso, então p = 0,25. Se você quiser contar os voos sem atraso, o p seria 0,75. O erro é misturar: contar os sem atraso e usar p = 0,25.</p>
+
+    <h3>Erro 2: no máximo, no mínimo, mais de e menos de</h3>
+    <p>Para os n possíveis valores de k (0 até n), veja quais o enunciado pede:</p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Pedido</th>
+                <th>Quais k</th>
+                <th>Conta</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Exatamente N</td><td>só N</td><td>P(N)</td></tr>
+            <tr><td>No máximo N</td><td>0 até N</td><td>P(0) + ... + P(N)</td></tr>
+            <tr><td>Menos de N</td><td>0 até N &minus; 1</td><td>P(0) + ... + P(N &minus; 1)</td></tr>
+            <tr><td>No mínimo N (ou pelo menos N)</td><td>N até o fim</td><td>1 &minus; (P(0) + ... + P(N &minus; 1))</td></tr>
+            <tr><td>Mais de N</td><td>N + 1 até o fim</td><td>1 &minus; (P(0) + ... + P(N))</td></tr>
+        </tbody>
+    </table>
+    <p>Cuidado com "no máximo" e "menos de": no máximo 3 inclui o 3, menos de 3 não inclui. O mesmo vale para "no mínimo" e "mais de".</p>
+    <p>Na <strong>Poisson</strong> não existe um último valor, k pode ser 0, 1, 2, 3 e assim por diante, sem parar. Por isso "no mínimo", "pelo menos" e "mais de" sempre usam o 1 &minus; (...). Já "no máximo" e "menos de" são somas diretas.</p>
+
+    <h3>Erro 3: com e sem (o enunciado fala o contrário do p)</h3>
+    <p>Exemplo: n = 16 voos e p = 0,25 de atraso. Aqui o k conta voos <strong>com atraso</strong>, mas o enunciado pergunta sobre voos <strong>sem atraso</strong>. Para não mudar o p, traduza o pedido:</p>
+    <ol>
+        <li>Faça n &minus; N (o total menos o número do enunciado).</li>
+        <li>Troque "no mínimo" por "no máximo", ou "no máximo" por "no mínimo".</li>
+        <li>Agora o pedido é sobre os "com atraso", e o p = 0,25 serve.</li>
+    </ol>
+    <p>Valores de P(k) para n = 16 e p = 0,25:</p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>k</th>
+                <th>P(k)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>0</td><td>0,010023</td></tr>
+            <tr><td>1</td><td>0,053454</td></tr>
+            <tr><td>2</td><td>0,133635</td></tr>
+            <tr><td>3</td><td>0,207876</td></tr>
+            <tr><td>4</td><td>0,225199</td></tr>
+        </tbody>
+    </table>
+
+    <p><strong>No mínimo 13 voos sem atraso</strong></p>
+    <p>16 &minus; 13 = 3 e mínimo vira máximo, então: no máximo 3 com atraso.</p>
+    <p>P = P(0) + P(1) + P(2) + P(3) &asymp; 0,4050</p>
+
+    <p><strong>No máximo 11 voos sem atraso</strong></p>
+    <p>16 &minus; 11 = 5 e máximo vira mínimo, então: no mínimo 5 com atraso.</p>
+    <p>P = 1 &minus; (P(0) + P(1) + P(2) + P(3) + P(4)) &asymp; 1 &minus; 0,6302 = 0,3698</p>
+
+    <p><strong>No mínimo 12 voos sem atraso</strong></p>
+    <p>16 &minus; 12 = 4 e mínimo vira máximo, então: no máximo 4 com atraso.</p>
+    <p>P = P(0) + P(1) + P(2) + P(3) + P(4) &asymp; 0,6302</p>
+
+    <p>Outro caminho que também funciona é contar os "sem atraso" e usar p = 0,75. Escolha um dos dois e não misture.</p>
+
+    <h3>Erro 4: soma direta ou 1 &minus; soma</h3>
+    <p>Depois de saber quais k o pedido quer, conte os termos. Faça a soma que tiver menos termos:</p>
+    <ul>
+        <li>Poucos termos pedidos: some direto.</li>
+        <li>Muitos termos pedidos e poucos sobrando: faça 1 &minus; (a soma do que sobra).</li>
+    </ul>
+    <p><strong>Exemplo (Binomial):</strong> n = 20 e p = 0,2 (atraso). "No mínimo 3 sem atraso": 20 &minus; 3 = 17, então no máximo 17 com atraso. São 18 termos (de 0 até 17), mas sobram só 3 (18, 19 e 20):</p>
+    <p>P = 1 &minus; (P(18) + P(19) + P(20))</p>
+    <p>P = 1 &minus; 0,00000000003 &asymp; 1</p>
+    <p>É por isso que a resposta desse tipo de exercício dá 1: é praticamente certo.</p>
+
+    <p><strong>Exemplo (Poisson):</strong> em média 2 acidentes a cada 100 km. Em 250 km, &lambda; = 5. "Pelo menos 2 acidentes":</p>
+    <p>P(X &ge; 2) = 1 &minus; (P(0) + P(1))</p>
+    <p>P(0) = e<sup>&minus;5</sup> &asymp; 0,006738</p>
+    <p>P(1) = e<sup>&minus;5</sup> &middot; 5 &asymp; 0,033690</p>
+    <p>P(X &ge; 2) = 1 &minus; 0,040428 = 0,959572</p>
+    <p>Já "exatamente 2" é só um termo:</p>
+    <p>P(X = 2) = (e<sup>&minus;5</sup> &middot; 5<sup>2</sup>) / 2! &asymp; 0,084224</p>
+    <p>Atenção: não confunda "exatamente 2" com "pelo menos 2".</p>
+
+    <h3>Erro 5: esquecer de converter a porcentagem</h3>
+    <p>Na conta, a porcentagem vira decimal: divida por 100.</p>
+    <p>0,2% = 0,2 / 100 = 0,002</p>
+    <p>Exemplo: 0,2% das peças são defeituosas e uma caixa tem 50 peças. Como n &ge; 30 e p é pequeno, usamos Poisson:</p>
+    <p>&lambda; = n &middot; p = 50 &middot; 0,002 = 0,1</p>
+    <p>Nenhuma defeituosa: P(0) = e<sup>&minus;0,1</sup> &asymp; 0,9048</p>
+    <p>Exatamente uma: P(1) = (e<sup>&minus;0,1</sup> &middot; 0,1) / 1! &asymp; 0,0905</p>
+    <p>Se você usasse p = 0,2 no lugar de 0,002, o &lambda; daria 10 e o resultado ficaria completamente errado. Aqui também não se usa regra de três: o &lambda; vem de n &middot; p.</p>
+
+    <h3>Erro 6: esquecer a regra de três do &lambda;</h3>
+    <p>Na Poisson, o &lambda; é a média <strong>do intervalo que a pergunta pede</strong>. Se o intervalo mudar, o &lambda; muda.</p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Distância (km)</th>
+                <th>Acidentes (média)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>100</td><td>2</td></tr>
+            <tr><td>250</td><td>x</td></tr>
+        </tbody>
+    </table>
+    <p>x = (250 &middot; 2) / 100 = 5, então &lambda; = 5.</p>
+    <p>Usar &lambda; = 2 numa pergunta sobre 250 km é erro.</p>
+
+    <hr>
+    <h2>Roteiro para não errar</h2>
+    <ol>
+        <li>O enunciado tem n e p, ou só uma média por tempo ou espaço?</li>
+        <li>Escolha a distribuição: n &lt; 30 Binomial, n &ge; 30 com p pequeno Poisson (&lambda; = n &middot; p), só a média Poisson.</li>
+        <li>Escreva o que o k conta e o p desse evento (porcentagem em decimal).</li>
+        <li>Se o enunciado fala o contrário do p, traduza: n &minus; N e troque mínimo por máximo.</li>
+        <li>Veja quais valores de k o pedido quer.</li>
+        <li>Conte os termos: soma direta ou 1 &minus; (a soma do que sobra).</li>
+        <li>Confira: o resultado tem que estar entre 0 e 1.</li>
+    </ol>
+
+    <p><a href="index.html">&larr; Voltar ao início</a></p>
+</body>
+</html>
